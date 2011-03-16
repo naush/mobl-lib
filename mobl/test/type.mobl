@@ -2,12 +2,12 @@ module mobl::test::type
 
 type TestSuiteResult {
   description : String
-  cases       : Collection<TestCaseResult>
+  cases       : Collection<TestCaseResult> (inverse: testSuiteResult)
 }
 
 type TestCaseResult {
   description : String
-  results     : Collection<TestResult>
+  results     : Collection<TestResult> (inverse: testCaseResult)
   elapsed     : Num
 }
 
