@@ -156,9 +156,9 @@ control testRunner() {
           var kase_id = kase.description.replace(space, underscores)
           item(style=caseItemStyle,
                pushedStyle=caseItemStyle,
-               onclick={ $("#" + kase_id).slideToggle(); })
+               onclick={ $("#" + suite_id + "_" + kase_id).slideToggle(); })
                { label(kase.description + " (" + kase.elapsed + " ms)") }
-          <div id=kase_id>
+          <div id=suite_id + "_" + kase_id>
             showTestResults(kase.results)
           </div>
         }
