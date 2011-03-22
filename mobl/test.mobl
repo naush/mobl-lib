@@ -90,7 +90,7 @@ function runAllTests() {
     logTestSuite(suite, kase);
     var start = now().getTime();
     runTests(null);
-    currentCaseResult.elapsed = now().getTime() - start;
+    currentCaseResult.elapsed = currentCaseResult.elapsed + now().getTime() - start;
   }
 }
 
