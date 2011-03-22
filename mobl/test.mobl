@@ -47,8 +47,12 @@ function tearDown(block : Callback) {
   caseTearDown = block;
 }
 
-function assertEqual(expected : Object, actual : Object) {
-  if(expected == actual) {
+function defaultMatcher(expected : Object, actual : Object) : Bool {
+  return expected == actual;
+}
+
+function assertEqual(expected : Object, actual : Object, matcher : Function2<Object, Object, Bool> = defaultMatcher) {
+  if(matcher(expected, actual)) {
     currentCaseResult.results.add(TestResult(success=true));
   } else {
     currentCaseResult.results.add(TestResult(success=false, message="Expected: " + expected + " Got: " + actual));
